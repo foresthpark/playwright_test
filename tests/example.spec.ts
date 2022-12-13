@@ -36,7 +36,7 @@ test("homepage has title and links to intro page", async ({ page }) => {
 test("Test some stuff", async ({ page }) => {
   const browser = await chromium.launch();
 
-  await page.goto("/");
+  await page.goto("http://localhost:3000/");
   await page.getByRole("button", { name: "Send request" }).click();
 
   const findParagraph = await page.locator("#message_test");
