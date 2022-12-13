@@ -13,7 +13,7 @@ import { devices } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   testDir: "./tests",
   webServer: {
-    command: "npm run start",
+    command: "npm run build && npm run start",
     url: "http://localhost:3000",
   },
   /* Maximum time one test can run for. */
