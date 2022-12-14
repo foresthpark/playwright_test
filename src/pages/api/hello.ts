@@ -9,8 +9,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (!isUserValid.success) {
     return res
-      .status(200)
-      .json({ success: false, message: "Invalid user input data" });
+      .status(400)
+      .json({
+        success: false,
+        message: "Invalid user input data",
+        errMessage: isUserValid.error,
+      });
   }
 
   return res.status(200).json({

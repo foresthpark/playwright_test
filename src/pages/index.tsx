@@ -14,8 +14,8 @@ const Home: NextPage = () => {
 
   const handleUserSubmit = async () => {
     const response = await axios.post("/api/hello", {
-      name: "John Doe",
-      age: 22,
+      name: "Forest Park",
+      age: 37,
     });
 
     if (!response.data.success) {
