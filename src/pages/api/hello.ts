@@ -8,13 +8,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const isUserValid = validateUser(user);
 
   if (!isUserValid.success) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        message: "Invalid user input data",
-        errMessage: isUserValid.error,
-      });
+    return res.status(200).json({
+      success: false,
+      message: "Invalid user input data",
+      errMessage: isUserValid.error.message,
+    });
   }
 
   return res.status(200).json({
@@ -22,3 +20,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     message: `Hello, ${user.name}. You are ${user.age} years old`,
   });
 }
+
+// v2/sites
+// v2/sites/:siteId
+
+// @types/vizzn-web
+// sites.list.ts
+// sites.getById.ts
+
+// import type {SitesGetList} from @types/vizzn-web/sites/list
+// import types {SitesGetById} from @types/vizzn-web/sites/getById

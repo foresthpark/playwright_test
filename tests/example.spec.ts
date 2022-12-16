@@ -42,7 +42,7 @@ test("Test some stuff", async ({ page }) => {
   const findParagraph = await page.locator("#message_test");
 
   await expect(findParagraph).toHaveText(
-    "Hello, Forest Park. You are 37 years old"
+    "Hello, Forest Park. You are  years old"
   );
 
   await browser.close();

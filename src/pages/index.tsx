@@ -9,17 +9,19 @@ import { useForm } from "react-hook-form";
 const Home: NextPage = () => {
   const [counter, setCounter] = useState(0);
   const [message, setMessage] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const { handleSubmit, register } = useForm();
 
   const handleUserSubmit = async () => {
     const response = await axios.post("/api/hello", {
       name: "Forest Park",
-      age: 37,
+      age: 18,
     });
 
     if (!response.data.success) {
       setMessage(response.data.message);
+      setErrMessage(response.data.errMessage);
       return;
     }
 
@@ -45,6 +47,7 @@ const Home: NextPage = () => {
           Send request
         </button>
         {message && <p id="message_test">{message}</p>}
+        {errMessage && <p id="err_message_test">{errMessage}</p>}
         <form>
           <input {...register("name", { required: true })}></input>
           <input {...register("age", { required: true })}></input>
